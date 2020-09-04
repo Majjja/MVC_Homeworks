@@ -1,25 +1,22 @@
-﻿@model IEnumerable<PizzaApp.Models.PizzaModel>
+﻿@model IEnumerable<PizzaApp.Models.ViewModels.PizzaVM>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h2>Index</h2>
+<h2>Menu</h2>
 
-<p>
+@*<p>
     <a asp-action="CreatePizza">Create New Pizza</a>
-</p>
+</p>*@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredients)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
@@ -28,26 +25,40 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "PizzaDetails", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "PizzaDelete", new { id = item.Id })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @foreach (var ingredient in item.Ingredients)
+                    {
+                        if (item.Ingredients[item.Ingredients.Count - 1] == ingredient)
+                        {
+                            <div>@ingredient</div>
+                        }
+                        else
+                        {
+                            <div>@ingredient,</div>
+                        }
+                     }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "PizzaEdit", new { id = item.Id }) |*@
+                    @Html.ActionLink("Details", "PizzaDetails", new { id = item.Id }) 
+                    @*@Html.ActionLink("Delete", "PizzaDelete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<div>
+    <a asp-action="BackToStores">Back to Store List</a>
+</div>

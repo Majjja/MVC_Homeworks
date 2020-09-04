@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PizzaApp.Models;
+using PizzaApp.Models.ViewModels;
 
 namespace PizzaApp.Controllers
 {
@@ -15,7 +16,15 @@ namespace PizzaApp.Controllers
         public IActionResult Index()
         {
             List<PizzaModel> pizzas = StaticDB.ListOfPizzas;
-            return View(pizzas);
+            var pizzasVM = pizzas.Select(pizza => new PizzaVM()
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+                Size = pizza.Size,
+                Price = pizza.Price,
+                Ingredients = pizza.Ingredients
+            }).ToList();
+            return View(pizzasVM);
         }
 
         [HttpGet("create")]
@@ -32,8 +41,19 @@ namespace PizzaApp.Controllers
                 Id = StaticDB.ListOfPizzas.Count + 1,
                 Name = model.Name,
                 Size = model.Size,
+                Ingredients = model.Ingredients,
                 Price = model.Price
             };
+
+            if (newItem.Size == PizzaSize.Medium)
+                newItem.Price = model.Price;
+
+            if (newItem.Size == PizzaSize.Small)
+                newItem.Price = model.Price * 0.75;
+            
+            if (newItem.Size == PizzaSize.Family)
+                newItem.Price = model.Price * 1.5;
+
 
             StaticDB.ListOfPizzas.Add(newItem);
             return RedirectToAction("Index");
@@ -43,7 +63,15 @@ namespace PizzaApp.Controllers
         public IActionResult PizzaDetails(int id)
         {
             var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
-            return View(pizza);
+            var pizzaVM = new PizzaVM()
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+                Size = pizza.Size,
+                Ingredients = pizza.Ingredients,
+                Price = pizza.Price
+            };
+            return View(pizzaVM);
         }
 
         [HttpGet("delete/{id}")]
@@ -53,12 +81,42 @@ namespace PizzaApp.Controllers
             return View(pizza);
         }
 
-        [HttpDelete("deletePizza/{id}")]
-        public IActionResult DeletePizzaFromList(int id)
+        [HttpPost("deletedPizza/{id}"), ActionName("DeletedPizzaFromList")]
+        public IActionResult DeletedPizzaFromList(int id)
         {
             var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
             StaticDB.ListOfPizzas.Remove(pizza);
+
             return RedirectToAction("Index");            
+        }
+
+        [HttpGet("edit/{id}")]
+        public IActionResult PizzaEdit(int id)
+        {
+            var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
+            return View(pizza);
+        }
+
+        [HttpPost("edited/{id}"), ActionName("PizzaEdited")]
+        public IActionResult PizzaEdited(PizzaModel model)
+        {
+
+            var newPizza = new PizzaModel()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Size = model.Size,
+                Ingredients = model.Ingredients,
+                Price = model.Price
+            };
+            StaticDB.ListOfPizzas.Add(newPizza);
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult BackToStores()
+        {
+            return RedirectToAction("Index", "Store");
         }
     }
 }

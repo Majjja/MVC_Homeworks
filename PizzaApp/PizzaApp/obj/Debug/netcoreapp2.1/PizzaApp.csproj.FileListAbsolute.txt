@@ -35,6 +35,9 @@ D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Deb
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\PizzaApp.pdb
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\PizzaApp.csproj.CopyComplete
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Index.cshtml.g.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\PizzaDelete.cshtml.g.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\PizzaEdit.cshtml.g.cs
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\PizzaDetails.cshtml.g.cs
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\CreatePizza.cshtml.g.cs
-D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\PizzaDelete.cshtml.g.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Store\Index.cshtml.g.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\obj\Debug\netcoreapp2.1\Razor\Views\Store\Details.cshtml.g.cs
