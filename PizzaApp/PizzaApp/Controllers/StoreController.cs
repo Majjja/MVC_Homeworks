@@ -17,6 +17,9 @@ namespace PizzaApp.Controllers
             {
                 Id = store.Id,
                 Name = store.Name,
+                Address = store.Address,
+                City = store.City,
+                PhoneNumber = store.PhoneNumber,
                 PizzaIds = store.PizzaIds
             }).ToList();
 
@@ -25,15 +28,14 @@ namespace PizzaApp.Controllers
 
         public IActionResult Details(int id)
         {
-            ViewBag.Welcome = "Welcome to our Pizza Store!!!";
-
-            var pizzas = StaticDB.ListOfPizzas.Select(pizza => new PizzaVM()
+            var pizzasVM = StaticDB.ListOfPizzas.Select(pizza => new PizzaVM()
             {
                 Id = pizza.Id,
                 Name = pizza.Name,
                 Size = pizza.Size,
                 Price = pizza.Price,
-                Ingredients = pizza.Ingredients
+                Ingredients = pizza.Ingredients,
+                ImgUrl = pizza.ImgUrl
             }).ToList();
 
             var store = StaticDB.ListOfStores.SingleOrDefault(x => x.Id == id);
@@ -50,7 +52,7 @@ namespace PizzaApp.Controllers
             var pizzasNames = new List<PizzaVM>();
             foreach (var item in storeVM.PizzaIds)
             {
-                foreach (var pizza in pizzas)
+                foreach (var pizza in pizzasVM)
                 {
                     if (item == pizza.Id)
                     {
@@ -58,8 +60,9 @@ namespace PizzaApp.Controllers
                     }
                 }
             }
+            ViewBag.Welcome = "Welcome to " + store.Name;
             ViewBag.PizzaNames = pizzasNames;
-            return View(storeVM);
+            return View(pizzasNames);
         }
 
         public IActionResult PizzaDetails(int id)
@@ -70,7 +73,7 @@ namespace PizzaApp.Controllers
 
         public IActionResult GoToPizzaMenu()
         {
-            return RedirectToAction("list", "pizzas");
+            return RedirectToAction("list", "pizzas", "id");
         }
     }
 }

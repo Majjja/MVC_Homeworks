@@ -1,0 +1,46 @@
+﻿@model PizzaVM
+@{
+    ViewData["Title"] = "_PizzaCard";
+}
+<div class="card" style="width: 18rem;">
+    <img src=@Model.ImgUrl width="180" height="135" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h3 class="card-title">@Html.DisplayFor(p => p.Name)</h3><hr />
+        <div class="card-text">@Html.LabelFor(p => p.Size) @Html.DisplayFor(p => p.Size)</div><hr />
+        <div class="card-text"> @Html.LabelFor(p => p.Price) @Html.DisplayFor(p => p.Price)</div><hr />
+        <div class="card-text">
+            @Html.LabelFor(p => p.Ingredients)
+            @foreach (var ingredient in Model.Ingredients)
+            {
+                if (Model.Ingredients[Model.Ingredients.Count - 1] == ingredient)
+                {
+                    <div>@ingredient</div>
+                }
+                else
+                {
+                    <div>@ingredient,</div>
+                }
+            }
+        </div>
+        <div class="btn-align">
+            <a asp-action="Index" , asp-controller="Order" class="btn btn-primary">Order Pizza</a>
+        </div>
+    </div>
+</div>
+<style>
+    .card {
+        background-color: rgba(233, 241, 242, 0.4);
+    }
+    .card-title {
+        text-align: center;
+        color: #abc6c9;
+    }
+    .btn-align {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .card-text{
+        margin-left: 30px;
+    }
+</style>

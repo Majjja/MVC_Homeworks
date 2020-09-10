@@ -23,8 +23,13 @@ using PizzaApp.Models;
 
 #line default
 #line hidden
+#line 3 "D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\Views\_ViewImports.cshtml"
+using PizzaApp.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b280094c6baa7c6027fa12c5aab4c969c2eef2ae", @"/Views/Pizza/PizzaDelete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc15dd9ac112cec217320a8152f12002a6eb2028", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1cc5019f45d343a09d5d2644a5f206a0e1a412f0", @"/Views/_ViewImports.cshtml")]
     public class Views_Pizza_PizzaDelete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PizzaApp.Models.PizzaModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -146,12 +151,12 @@ using PizzaApp.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n    \r\n    ");
             EndContext();
             BeginContext(885, 175, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "519e5d770f9f4c868eb92404dc8e90bd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f8a064fe7f2042548ad35186552ad06f", async() => {
                 BeginContext(925, 84, true);
                 WriteLiteral("\r\n        <input type=\"submit\" value=\"Delete\" class=\"btn btn-default\" /> |\r\n        ");
                 EndContext();
                 BeginContext(1009, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10b7b7c5197543b9a75eeb2c6d3be5d8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2cc07653163480298f9371daeb874bb", async() => {
                     BeginContext(1031, 12, true);
                     WriteLiteral("Back to List");
                     EndContext();

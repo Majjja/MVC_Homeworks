@@ -14,18 +14,5 @@ namespace PizzaApp.Models.DomainModels
         public long PhoneNumber { get; set; }
         public List<int> PizzaIds { get; set; }
 
-        public Store()
-        {
-
-        }
-        public Store(int id, string name, string address, string city, long phone, List<int> pizzaids)
-        {
-            Id = id;
-            Name = name;
-            Address = address;
-            City = city;
-            PhoneNumber = phone;
-            PizzaIds = pizzaids;
-        }
     }
 }

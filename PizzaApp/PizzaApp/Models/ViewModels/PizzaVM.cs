@@ -23,5 +23,6 @@ namespace PizzaApp.Models.ViewModels
 
         [Display(Name = "Pizza Price:")]
         public double Price { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

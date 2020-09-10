@@ -19,19 +19,5 @@ namespace PizzaApp.Models.ViewModels
 
         [Display(Name = "Pizza Menu")]
         public List<int> PizzaIds { get; set; }
-
-        public StoreVM()
-        {
-
-        }
-        public StoreVM(int id, string name, string address, string city, long phone, List<int> pizzaids)
-        {
-            Id = id;
-            Name = name;
-            Address = address;
-            City = city;
-            PhoneNumber = phone;
-            PizzaIds = pizzaids;
-        }
     }
 }

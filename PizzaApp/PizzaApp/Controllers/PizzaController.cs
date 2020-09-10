@@ -22,7 +22,8 @@ namespace PizzaApp.Controllers
                 Name = pizza.Name,
                 Size = pizza.Size,
                 Price = pizza.Price,
-                Ingredients = pizza.Ingredients
+                Ingredients = pizza.Ingredients,
+                ImgUrl = pizza.ImgUrl
             }).ToList();
             return View(pizzasVM);
         }
@@ -38,7 +39,7 @@ namespace PizzaApp.Controllers
         {
             var newItem = new PizzaModel()
             {
-                Id = StaticDB.ListOfPizzas.Count + 1,
+                Id = StaticDB.ListOfPizzas.Count + 1, 
                 Name = model.Name,
                 Size = model.Size,
                 Ingredients = model.Ingredients,

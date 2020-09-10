@@ -1,0 +1,35 @@
+﻿@model PizzaApp.Models.ViewModels.StoreVM
+@{
+    ViewData["Title"] = "_StoreCard";
+}
+
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Name</h3><hr />
+        <h5 class="card-subtitle mb-2 text-muted">Address: @Html.DisplayFor(s => s.Address), @Html.DisplayFor(s => s.City)</h5><hr />
+        <h5 class="card-subtitle mb-2 text-muted">Contact: @Html.DisplayFor(s => s.PhoneNumber)</h5>
+        <div class="btn-align">
+            @Html.ActionLink("Pizza Menu", "Details", "Store", new { id = Model.Id }, new { @class= "btn btn-primary" })
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        background-color: rgba(233, 241, 242, 0.4);
+        padding: 10px;
+        margin: 15px;
+    }
+
+    .card-body {
+        text-align: center;
+        color: #abc6c9;
+        margin: 30px;
+    }
+
+    .btn-align {
+        text-align: center;
+        padding-top: 10px;
+     
+    }
+</style>

@@ -1,0 +1,17 @@
+﻿@*@model PizzaApp.Models.DomainModels.User*@
+@model UserVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Fill the Login Form</h2>
+<form asp-action="Login" method="post">
+    <label asp-for="Email" class="control-label">Enter your E-mail: </label>
+    <input asp-for="Email" placeholder="email" required /><br /><br />
+    <label asp-for="Password" class="control-label">Enter your password: </label>
+    <input asp-for="Password" placeholder="password" required /> <br />
+    <input type="submit" value="Login" />
+</form>
+
+

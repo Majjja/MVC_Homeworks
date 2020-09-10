@@ -11,60 +11,330 @@ namespace PizzaApp
     {
         public static List<PizzaModel> ListOfPizzas = new List<PizzaModel>()
         {
-            new PizzaModel(1, "Capricciosa", PizzaSize.Family, 
-                new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"}, 4 * 1.5),
-            new PizzaModel(2, "Cheese", PizzaSize.Medium,
-                new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"}, 5),
-            new PizzaModel(3, "Veggie", PizzaSize.Small,
-                new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"}, 3.5 * 0.75),
-            new PizzaModel(4, "Margherita", PizzaSize.Family,
-                new List<string>(){ "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"}, 4.5 * 1.5),
-            new PizzaModel(5, "Pepperoni", PizzaSize.Family,
-                new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"}, 6 * 1.5),
-            new PizzaModel(6, "Chicken", PizzaSize.Medium,
-                new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"}, 7),
-            new PizzaModel(7, "Hawaiian", PizzaSize.Small,
-                new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"}, 5 * 0.75),
-            new PizzaModel(8, "Buffalo", PizzaSize.Family,
-                new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"}, 5 * 1.5)
+            new PizzaModel()
+            {
+                Id = 1,
+                Name = "Capricciosa",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                Price = 4,
+                ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+            },
+            new PizzaModel()
+            {
+                Id = 2,
+                Name = "Cheese",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                Price = 5,
+                ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+            },
+            new PizzaModel()
+            {
+                Id = 3,
+                Name = "Veggie",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"},
+                Price = 3.5,
+                ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
+            },
+             new PizzaModel()
+            {
+                Id = 4,
+                Name = "Margherita",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
+                Price = 4.5,
+                ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+            },
+            new PizzaModel()
+            {
+                Id = 5,
+                Name = "Pepperoni",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
+                Price =  6,
+                ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+            },
+            new PizzaModel()
+            {
+                Id = 6,
+                Name = "Chicken",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"},
+                Price = 7,
+                ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
+            },
+             new PizzaModel()
+            {
+                Id = 7,
+                Name = "Hawaiian",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
+                Price =  5,
+                ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+            },
+            new PizzaModel()
+            {
+                Id = 8,
+                Name = "Buffalo",
+                Size = PizzaSize.Medium,
+                Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+                Price = 5,
+                ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+            }
         };
 
         public static List<User> ListOfUsers = new List<User>()
         {
-            new User(1, "Bob", "Bobsky", "Bob Street", 080012312345),
-            new User(2, "Bobby", "Bobs", "Bobby Street", 080012888896),
-            new User(3, "John", "Doe", "John Street", 080012388333),
-            new User(4, "Jeny", "Juls", "Jeny Street", 080012374444),
-            new User(5, "Mark", "Markus", "Mark Street", 080012175111),
-            new User(6, "Dan", "Dansky", "Dan Street", 080012175177),
-            new User(7, "Pol", "Polsky", "Pol Street", 080012175777),
-            new User(8, "Pirs", "Pirsky", "Pirs Street", 080012175883)
+            new User()
+            {
+                Id = 0,
+                FirstName = "Julian",
+                LastName = "Julsky",
+                Address = "Jul Street",
+                PhoneNumber = 080012318888,
+                Email = "admin@yahoo.com",
+                Password = "Admin123$",
+                isAdmin = true
+            },
+            new User()
+            {
+                Id = 1,
+                FirstName = "Bob",
+                LastName = "Bobsky",
+                Address = "Bob Street",
+                PhoneNumber = 080012312345,
+                Email = "bob@yahoo.com",
+                Password = "Bob123$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 2,
+                FirstName = "Bobby",
+                LastName = "Bobs",
+                Address = "Bobby Street",
+                PhoneNumber = 080012888896,
+                Email = "bobby@yahoo.com",
+                Password = "Bobby1234$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 3,
+                FirstName = "John",
+                LastName =  "Doe",
+                Address = "John Street",
+                PhoneNumber = 080012388333,
+                Email = "john@yahoo.com",
+                Password = "John12345$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 4,
+                FirstName = "Jeny",
+                LastName = "Juls",
+                Address = "Jeny Street",
+                PhoneNumber = 080012374444,
+                Email = "jeny@yahoo.com",
+                Password = "Jeny123456$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 5,
+                FirstName = "Mark",
+                LastName = "Markus",
+                Address = "Mark Street",
+                PhoneNumber = 080012175111,
+                Email = "mark@yahoo.com",
+                Password = "Mark1234567$",
+                isAdmin = false
+            },
+                new User()
+            {
+                Id = 6,
+                FirstName = "Dan",
+                LastName = "Dansky",
+                Address = "Dan Street",
+                PhoneNumber = 080012175177,
+                Email = "dan@yahoo.com",
+                Password = "Dan12345678$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 7,
+                FirstName = "Pol",
+                LastName = "Polsky",
+                Address = "Pol Street",
+                PhoneNumber = 080012175777,
+                Email = "pol@yahoo.com",
+                Password = "Pol123456789$",
+                isAdmin = false
+            },
+            new User()
+            {
+                Id = 8,
+                FirstName = "Pirs",
+                LastName ="Pirsky",
+                Address = "Pirs Street",
+                PhoneNumber = 080012175883,
+                Email = "pirs@yahoo.com",
+                Password = "Pirs1234567891$",
+                isAdmin = false
+            }
         };
 
         public static List<Store> ListOfStores = new List<Store>()
         {
-            //address, string city, long phone,
-            new Store(1, "Dominos", "Street 1", "Skopje", 1234567891, new List<int>(){1, 2, 4, 5, 6, 8 }),
-            new Store(2, "Figaro", "Street 2", "Skopje", 1234567891, new List<int>(){ 5, 6, 7, 8 }),
-            new Store(3, "The Best Pizzas", "Street 3", "Skopje", 1234567891, new List<int>(){1, 2, 3 }),
-            new Store(4, "Pizza Corner", "Street 4", "Skopje", 1234567891, new List<int>(){1, 4, 7, 8}),
-            new Store(5, "Pizza INN", "Street 5", "Skopje", 1234567891, new List<int>(){1, 2, 3, 4, 5, 7, 8 })
+            new Store()
+            {
+                Id = 1,
+                Name = "Dominos",
+                Address = "Street 1",
+                City = "Skopje",
+                PhoneNumber = 1234567891,
+                PizzaIds = new List<int>(){1, 2, 4, 5, 6, 8 }
+            },
+            new Store()
+            {
+                Id = 2,
+                Name = "Figaro",
+                Address =  "Street 2",
+                City = "Skopje",
+                PhoneNumber = 1234567891,
+                PizzaIds = new List<int>(){ 5, 6, 7, 8 }
+            },
+            new Store()
+            {
+                Id = 3,
+                Name = "The Best Pizzas",
+                Address = "Street 3",
+                City = "Skopje",
+                PhoneNumber = 1234567891,
+                PizzaIds = new List<int>(){1, 2, 3 }
+            },
+            new Store()
+            {
+                Id = 4,
+                Name = "Pizza Corner",
+                Address = "Street 4",
+                City = "Skopje",
+                PhoneNumber = 1234567891,
+                PizzaIds = new List<int>(){1, 4, 7, 8}
+            },
+            new Store()
+            {
+                Id = 5,
+                Name = "Pizza INN",
+                Address = "Street 5",
+                City = "Skopje",
+                PhoneNumber = 1234567891,
+                PizzaIds = new List<int>(){1, 2, 3, 4, 5, 7, 8 }
+            }
         };
 
         public static List<Order> ListOfOrders = new List<Order>()
         {
-            new Order(1, 1, 3, 2, true),
-            new Order(2, 1, 2, 4, false),
-            new Order(3, 3, 1, 1, true),
-            new Order(4, 3, 1, 2, true),
-            new Order(5, 3, 4, 2, false),
-            new Order(6, 5, 3, 1, true),
-            new Order(7, 5, 3, 4, true),
-            new Order(8, 4, 6, 7, false),
-            new Order(9, 4, 8, 8, true),
-            new Order(10, 2, 8, 5, true),
-            new Order(11, 2, 5, 6, true),
-            new Order(12, 3, 5, 3, true)
+            new Order()
+            {
+                 Id = 1,
+                StoreId = 1,
+                UserId = 3,
+                PizzaId = 2,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                 Id = 2,
+                StoreId = 1,
+                UserId = 2,
+                PizzaId = 4,
+                IsDelivered = false
+            },
+            new Order()
+            {
+                 Id = 3,
+                StoreId = 3,
+                UserId = 1,
+                PizzaId = 1,
+                IsDelivered = true
+            },
+             new Order()
+            {
+                 Id = 4,
+                StoreId =  3,
+                UserId = 1,
+                PizzaId = 2,
+                IsDelivered = true
+             },
+            new Order()
+            {
+                 Id = 5,
+                StoreId = 3,
+                UserId = 4,
+                PizzaId = 2,
+                IsDelivered = false
+            },
+            new Order()
+            {
+                 Id = 6,
+                StoreId = 5,
+                UserId = 3,
+                PizzaId = 1,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                Id = 7,
+                StoreId = 5,
+                UserId =  3,
+                PizzaId =  4,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                Id = 8,
+                StoreId = 4,
+                UserId =  6,
+                PizzaId = 7,
+                IsDelivered = false
+            },
+            new Order()
+            {
+                Id = 9,
+                StoreId = 4,
+                UserId = 8,
+                PizzaId = 8,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                Id = 10,
+                StoreId = 2,
+                UserId = 8,
+                PizzaId = 5,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                Id = 11,
+                StoreId = 2,
+                UserId = 5,
+                PizzaId = 6,
+                IsDelivered = true
+            },
+            new Order()
+            {
+                Id = 12,
+                StoreId = 3,
+                UserId = 5,
+                PizzaId = 3,
+                IsDelivered = true
+            }
         };
     }
 }

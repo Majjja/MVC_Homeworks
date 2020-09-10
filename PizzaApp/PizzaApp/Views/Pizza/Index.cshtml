@@ -1,64 +1,35 @@
-﻿@model IEnumerable<PizzaApp.Models.ViewModels.PizzaVM>
+﻿@model List<PizzaVM>
 
 
-<h2>Menu</h2>
+<h2 class="title">Pizza Menu</h2>
 
-@*<p>
-    <a asp-action="CreatePizza">Create New Pizza</a>
-</p>*@
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredients)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Size)
-                </td>
-                <td>
-                    @foreach (var ingredient in item.Ingredients)
-                    {
-                        if (item.Ingredients[item.Ingredients.Count - 1] == ingredient)
-                        {
-                            <div>@ingredient</div>
-                        }
-                        else
-                        {
-                            <div>@ingredient,</div>
-                        }
-                     }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "PizzaEdit", new { id = item.Id }) |*@
-                    @Html.ActionLink("Details", "PizzaDetails", new { id = item.Id }) 
-                    @*@Html.ActionLink("Delete", "PizzaDelete", new { id = item.Id })*@
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="content">
+    @foreach (var item in Model)
+    {
+        <div class="onecard">
+        <partial name="_PizzaCard" model=item />
+
+        </div>
+    }
+</div>
+
+
 <div>
     <a asp-action="BackToStores">Back to Store List</a>
 </div>
+
+<style>
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items:flex-start;
+        flex-wrap: wrap;
+    }
+    .onecard{
+        margin: 25px;
+    }
+    .title {
+        text-align: center;
+        color: #abc6c9;
+    }
+</style>
