@@ -9,6 +9,7 @@ namespace PizzaApp.Services.Interfaces
     {
         List<StoreVM> GetAllStores();
         StoreVM GetStoreById(int id);
+        List<PizzaVM> GetStoreMenu(int id);
         bool CreateNewStore(StoreVM store);
         bool UpdateStore(StoreVM store);
         bool DeleteStore(StoreVM store);

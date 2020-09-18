@@ -19,17 +19,12 @@ using PizzaApp;
 #line default
 #line hidden
 #line 2 "D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\Views\_ViewImports.cshtml"
-using PizzaApp.Models;
-
-#line default
-#line hidden
-#line 3 "D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp\Views\_ViewImports.cshtml"
 using PizzaApp.DataAccess.ViewModels;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75330fd9adaabe635f59a58a12a33d7c29312d4b", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7c9b5ba57ac5ebc2add6dfffc398a46e571961d8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"41f1d02d711f2a0319c22a69ae93f29e1fe659ac", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +77,7 @@ using PizzaApp.DataAccess.ViewModels;
                     ");
             EndContext();
             BeginContext(826, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "136d7f537c8340339e0ee90f2f3b7020", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51ac091ba5344d3d9033ebf6ada6e5e2", async() => {
                 BeginContext(894, 5, true);
                 WriteLiteral("Login");
                 EndContext();
@@ -107,7 +102,7 @@ using PizzaApp.DataAccess.ViewModels;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(925, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a8577cad3d094a8f9aab9387f6a090d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf973dc8e3d346f78758f9e00caf3fec", async() => {
                 BeginContext(996, 8, true);
                 WriteLiteral("Register");
                 EndContext();
@@ -142,7 +137,7 @@ using PizzaApp.DataAccess.ViewModels;
                     ");
             EndContext();
             BeginContext(1416, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c06b38904fe40028a3b3c620be14fa7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb94f481948a4de2addd52dc71cddc33", async() => {
                 BeginContext(1484, 5, true);
                 WriteLiteral("Login");
                 EndContext();
@@ -167,7 +162,7 @@ using PizzaApp.DataAccess.ViewModels;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1515, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0a72db8359e4915b7f9cf633fd74941", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92cac3bb5408460aa9b943a60e13a679", async() => {
                 BeginContext(1586, 8, true);
                 WriteLiteral("Register");
                 EndContext();
@@ -202,7 +197,7 @@ using PizzaApp.DataAccess.ViewModels;
                     ");
             EndContext();
             BeginContext(2085, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c48458ef45a4efc8b8df4dc15e1cf9c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae84d75071cc4a7595769570357f6279", async() => {
                 BeginContext(2153, 5, true);
                 WriteLiteral("Login");
                 EndContext();
@@ -227,7 +222,7 @@ using PizzaApp.DataAccess.ViewModels;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(2184, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97fb9117d6eb434ebae6bcc88e9b9f5c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45960c60a23742c8a0d25ec1cb3b390d", async() => {
                 BeginContext(2255, 8, true);
                 WriteLiteral("Register");
                 EndContext();

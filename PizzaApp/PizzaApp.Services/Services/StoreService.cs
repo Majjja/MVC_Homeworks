@@ -70,44 +70,11 @@ namespace PizzaApp.Services.Services
             return true;
         }
 
-
-        //public IActionResult Details(int id)
-        //{
-        //    var pizzasVM = StaticDB.ListOfPizzas.Select(pizza => new PizzaVM()
-        //    {
-        //        Id = pizza.Id,
-        //        Name = pizza.Name,
-        //        Size = pizza.Size,
-        //        Price = pizza.Price,
-        //        Ingredients = pizza.Ingredients,
-        //        ImgUrl = pizza.ImgUrl
-        //    }).ToList();
-
-        //    var store = StaticDB.ListOfStores.SingleOrDefault(x => x.Id == id);
-        //    var storeVM = new StoreVM()
-        //    {
-        //        Id = store.Id,
-        //        Name = store.Name,
-        //        Address = store.Address,
-        //        City = store.City,
-        //        PhoneNumber = store.PhoneNumber,
-        //        PizzaIds = store.PizzaIds
-        //    };
-
-        //    var pizzasNames = new List<PizzaVM>();
-        //    foreach (var item in storeVM.PizzaIds)
-        //    {
-        //        foreach (var pizza in pizzasVM)
-        //        {
-        //            if (item == pizza.Id)
-        //            {
-        //                pizzasNames.Add(pizza);
-        //            }
-        //        }
-        //    }
-        //    ViewBag.Welcome = "Welcome to  " + store.Name;
-        //    ViewBag.PizzaNames = pizzasNames;
-        //    return View(pizzasNames);
-        //}
+        public List<PizzaVM> GetStoreMenu(int id)
+        { 
+            var store = _storeRepo.GetAll().SingleOrDefault(x => x.Id == id);
+            var storeVM = MapperToVM.MapStoreToStoreVM(store);
+            return storeVM.ListOfPizzas;
+        }
     }
 }

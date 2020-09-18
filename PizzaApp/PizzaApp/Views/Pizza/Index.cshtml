@@ -6,16 +6,27 @@
 <div class="content">
     @foreach (var item in Model)
     {
-        <div class="onecard">
-        <partial name="_PizzaCard" model=item />
-
+    <div class="onecard">
+        @*<partial name="_PizzaCard" model=item />*@
+        <div>
+            <h4>Name: @item.Name</h4>
+            <p>Id: @item.Id</p>
+            <p>Size: @item.Size</p>
+            <p>Price: @item.Price</p>
         </div>
+        <div>
+            <a asp-action="details" asp-controller="pizzas" asp-route-id=@item.Id>Details</a>
+            <a asp-action="delete" asp-controller="pizzas" asp-route-id=@item.Id>Delete</a>
+        </div>
+
+    </div>
     }
 </div>
 
 
 <div>
-    <a asp-action="BackToStores">Back to Store List</a>
+    <a asp-action="create" asp-controller="pizzas">Create new pizza</a>
+
 </div>
 
 <style>

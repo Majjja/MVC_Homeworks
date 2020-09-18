@@ -32,10 +32,10 @@ namespace PizzaApp.Services.Services
                 pizzaVM.Price *= 1.5;
 
             var domainPizza = MapperToDM.MapPizzaVMToPizza(pizzaVM);
-            var newPizza = _pizzaRepo.GetAll().SingleOrDefault(x => x.Id == domainPizza.Id);
-            if (newPizza == null)
+
+            var responce = _pizzaRepo.Create(domainPizza);
+            if (responce)
             {
-                _pizzaRepo.GetAll().Add(newPizza);
                 return true;
             }
             return false;

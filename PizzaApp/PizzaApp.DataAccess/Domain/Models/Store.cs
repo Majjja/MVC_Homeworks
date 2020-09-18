@@ -12,7 +12,7 @@ namespace PizzaApp.DataAccess.Domain.Models
         public string Address { get; set; }
         public string City { get; set; }
         public long PhoneNumber { get; set; }
-        public List<int> PizzaIds { get; set; }
+        public List<Pizza> ListOfPizzas { get; set; }
 
     }
 }

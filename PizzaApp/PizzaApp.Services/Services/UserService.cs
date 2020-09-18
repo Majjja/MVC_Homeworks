@@ -3,6 +3,7 @@ using PizzaApp.DataAccess.Domain.Models;
 using PizzaApp.DataAccess.ViewModels;
 using PizzaApp.Services.Interfaces;
 using PizzaApp.Services.MappingToDM;
+using PizzaApp.Services.MappingToVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,68 +18,89 @@ namespace PizzaApp.Services.Services
         {
             _userRepo = userRepo;
         }
-        public bool Login(UserVM user)
+        public UserVM Login(UserVM user)
         {
             var userDomain = MapperToDM.MapUserVMToUser(user);
-
             var listOfUsers = _userRepo.GetAll();
-
             var loggedUser = listOfUsers.SingleOrDefault(u => u.Email == userDomain.Email && u.Password == userDomain.Password);
 
             if (loggedUser == null)
-                return false;
+                return null;
 
-            return true;
+            var returnUser = MapperToVM.MapUserToUserVM(loggedUser);
+            return returnUser;
         }
 
-        public bool Register(UserVM user)
+        public bool Register(UserVM userVM)
         {
             var usersDomain = _userRepo.GetAll();
-            var id = user.Id;
-            var userDomain = _userRepo.GetById(id);
 
-            if (userDomain.Email[0] >= 'a' && userDomain.Email[0] <= 'z' &&
-                userDomain.Email[userDomain.Email.Length - 1] >= 'a' && userDomain.Email[userDomain.Email.Length - 1] <= 'z' &&
-                userDomain.Email.Contains("@") &&
-                userDomain.Email.Contains("."))
+            if (userVM.Email[0] >= 'a' && userVM.Email[0] <= 'z' &&
+                userVM.Email[userVM.Email.Length - 1] >= 'a' && userVM.Email[userVM.Email.Length - 1] <= 'z' &&
+                userVM.Email.Contains("@") &&
+                userVM.Email.Contains("."))
             {
-                if (userDomain.Password[0] >= 'A' && userDomain.Password[0] <= 'Z' &&
-                userDomain.Password.Contains("$") &&
-                userDomain.Password.Any(char.IsDigit))
+                if (userVM.Password[0] >= 'A' && userVM.Password[0] <= 'Z' &&
+                userVM.Password.Contains("$") &&
+                userVM.Password.Any(char.IsDigit))
                 {
-                    var existingEmailOrPass = usersDomain.SingleOrDefault(u => u.Email == userDomain.Email || u.Password == userDomain.Password);
+                    var user = MapperToDM.MapUserVMToUser(userVM);
+                    var existingEmailOrPass = usersDomain.SingleOrDefault(u => u.Email == user.Email || u.Password == user.Password);
 
                     if (existingEmailOrPass != null)
-                        //return RedirectToAction("Register", new { error = "Already existing email or password, please try again" });
                         return false;
 
-                    //var newUser = new User()
-                    //{
-                    //    Id = usersDomain.Count + 1,
-                    //    FirstName = user.FirstName,
-                    //    LastName = user.LastName,
-                    //    Address = user.Address,
-                    //    PhoneNumber = user.PhoneNumber,
-                    //    Email = user.Email,
-                    //    Password = user.Password,
-                    //    isAdmin = false,
-                    //};
-                    var newUser = _userRepo.Create(userDomain);
-                    //usersDomain.Add(newUser);
-                    //return RedirectToAction("Index");
+                    user.Id = usersDomain.Count + 1;
+                    _userRepo.Create(user);
                     return true;
                 }
-                else
-                {
-                    //return RedirectToAction("Register", new { error = "Password should start with capital first letter and should contain some digit and $, please try again" });
-                    return false;
-                }
+                else return false;
             }
-            else
-            {
-                //return RedirectToAction("Register", new { error = "Email is not regular, please try again" });
-                return false;
-            }
+            else return false;
         }
+
+        #region MyRegion
+        //var usersDomain = StaticDB.ListOfUsers;
+
+        //if (user.Email[0] >= 'a' && user.Email[0] <= 'z' &&
+        //    user.Email[user.Email.Length - 1] >= 'a' && user.Email[user.Email.Length - 1] <= 'z' &&
+        //    user.Email.Contains("@") &&
+        //    user.Email.Contains("."))
+        //{
+        //    if (user.Password[0] >= 'A' && user.Password[0] <= 'Z' &&
+        //    user.Password.Contains("$") &&
+        //    user.Password.Any(char.IsDigit))
+        //    {
+        //        var existingEmailOrPass = usersDomain.SingleOrDefault(u => u.Email == user.Email || u.Password == user.Password);
+
+        //        if (existingEmailOrPass != null)
+        //            return RedirectToAction("Register", new { error = "Already existing email or password, please try again" });
+
+
+        //        var newUser = new User()
+        //        {
+        //            Id = usersDomain.Count + 1,
+        //            FirstName = user.FirstName,
+        //            LastName = user.LastName,
+        //            Address = user.Address,
+        //            PhoneNumber = user.PhoneNumber,
+        //            Email = user.Email,
+        //            Password = user.Password,
+        //            isAdmin = false,
+        //        };
+        //        usersDomain.Add(newUser);
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Register", new { error = "Password should start with capital first letter and should contain some digit and $, please try again" });
+        //    }
+        //}
+        //else
+        //{
+        //    return RedirectToAction("Register", new { error = "Email is not regular, please try again" });
+
+        //}
+        #endregion
     }
 }

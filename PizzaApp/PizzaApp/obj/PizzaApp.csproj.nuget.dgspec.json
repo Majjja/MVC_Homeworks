@@ -41,9 +41,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.Mvc.DataAnnotations": {
+            "Microsoft.AspNet.Mvc": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[5.2.7, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",

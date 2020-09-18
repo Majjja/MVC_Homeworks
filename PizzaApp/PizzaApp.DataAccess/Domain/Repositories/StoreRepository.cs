@@ -56,6 +56,5 @@ namespace PizzaApp.DataAccess.Domain.Repositories
             _db.GetStores()[index] = entity;
             return true;
         }
-
     }
 }

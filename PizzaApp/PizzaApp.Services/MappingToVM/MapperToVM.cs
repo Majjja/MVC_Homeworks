@@ -13,6 +13,7 @@ namespace PizzaApp.Services.MappingToVM
         {
             return new PizzaVM()
             {
+                Id = pizza.Id,
                 Name = pizza.Name,
                 Size = pizza.Size,
                 Price = pizza.Price,
@@ -25,11 +26,12 @@ namespace PizzaApp.Services.MappingToVM
         {
             return new StoreVM()
             {
+                Id = store.Id,
                 Name = store.Name,
                 Address = store.Address,
                 City = store.City,
                 PhoneNumber = store.PhoneNumber,
-                PizzaIds = store.PizzaIds
+                ListOfPizzas = MapPizzasToPizzasVM(store.ListOfPizzas)
             };
         }
 
@@ -37,13 +39,14 @@ namespace PizzaApp.Services.MappingToVM
         {
             return new UserVM()
             {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Address = user.Address,
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
                 Password = user.Password,
-                isAdmin = user.isAdmin
+                IsAdmin = user.IsAdmin
             };
         }
 
@@ -51,6 +54,7 @@ namespace PizzaApp.Services.MappingToVM
         {
             return new OrderVM()
             {
+                Id = order.Id,
                 UserId = order.UserId,
                 PizzaId = order.PizzaId,
                 StoreId = order.StoreId,
@@ -62,50 +66,61 @@ namespace PizzaApp.Services.MappingToVM
         {
             return pizzas.Select(x => new PizzaVM()
             {
+                Id = x.Id,
                 Name = x.Name,
                 Size = x.Size,
                 Price = x.Price,
                 Ingredients = x.Ingredients,
                 ImgUrl = x.ImgUrl
-
             }).ToList();
+
+            //return pizzas.Select(x => MapPizzaToPizzaVM(x)).ToList();
         }
 
         public static List<StoreVM> MapStoresToStoresVM(List<Store> stores)
         {
             return stores.Select(x => new StoreVM()
             {
+                Id = x.Id,
                 Name = x.Name,
                 PhoneNumber = x.PhoneNumber,
                 Address = x.Address,
                 City = x.City,
-                PizzaIds = x.PizzaIds
+                ListOfPizzas = MapPizzasToPizzasVM(x.ListOfPizzas)
             }).ToList();
+
+            //return stores.Select(x => MapStoreToStoreVM(x)).ToList();
         }
 
         public static List<UserVM> MapUsersToUsersVM(List<User> users)
         {
             return users.Select(x => new UserVM()
             {
+                Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Address = x.Address,
                 PhoneNumber = x.PhoneNumber,
                 Password = x.Password,
                 Email = x.Email,
-                isAdmin = x.isAdmin
+                IsAdmin = x.IsAdmin
             }).ToList();
+
+            //return users.Select(x => MapUserToUserVM(x)).ToList();
         }
 
         public static List<OrderVM> MapOrdersToOrdersVM(List<Order> orders)
         {
             return orders.Select(x => new OrderVM()
             {
+                Id = x.Id,
                 PizzaId = x.PizzaId,
                 StoreId = x.StoreId,
                 UserId = x.UserId,
                 IsDelivered = x.IsDelivered
             }).ToList();
+
+            //return orders.Select(x => MapOrderToOrderVM(x)).ToList();
         }
     }
 }

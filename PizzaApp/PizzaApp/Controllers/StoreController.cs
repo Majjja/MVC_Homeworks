@@ -25,60 +25,13 @@ namespace PizzaApp.Controllers
             return View(allStoresVM);
         }
 
+
         public IActionResult Details(int id)
         {
-            //var pizzasVM = StaticDB.ListOfPizzas.Select(pizza => new PizzaVM()
-            //{
-            //    Id = pizza.Id,
-            //    Name = pizza.Name,
-            //    Size = pizza.Size,
-            //    Price = pizza.Price,
-            //    Ingredients = pizza.Ingredients,
-            //    ImgUrl = pizza.ImgUrl
-            //}).ToList();
-
-            //var store = StaticDB.ListOfStores.SingleOrDefault(x => x.Id == id);
-            //var storeVM = new StoreVM()
-            //{
-            //    Id = store.Id,
-            //    Name = store.Name,
-            //    Address = store.Address,
-            //    City = store.City,
-            //    PhoneNumber = store.PhoneNumber,
-            //    PizzaIds = store.PizzaIds
-            //};
-
-            //var pizzasNames = new List<PizzaVM>();
-            //foreach (var item in storeVM.PizzaIds)
-            //{
-            //    foreach (var pizza in pizzasVM)
-            //    {
-            //        if (item == pizza.Id)
-            //        {
-            //            pizzasNames.Add(pizza);
-            //        }
-            //    }
-            //}
-
             var store = _storeService.GetStoreById(id);
-            var pizzas = _pizzaService.GetAllPizzas();
-
-            var pizzaMenu = new List<PizzaVM>();
-
-            foreach (var item in store.PizzaIds)
-            {
-                foreach (var pizza in pizzas)
-                {
-                    if (item == pizza.Id)
-                    {
-                        pizzaMenu.Add(pizza);
-                    }
-                }
-            }
-
             ViewBag.Welcome = "Welcome to  " + store.Name;
-            ViewBag.PizzaNames = pizzaMenu;
-            return View(pizzaMenu);
+            var storeMenu =_storeService.GetStoreMenu(id);
+            return View(storeMenu);
         }
 
         public IActionResult PizzaDetails(int id)

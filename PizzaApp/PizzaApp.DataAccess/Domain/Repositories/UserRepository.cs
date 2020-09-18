@@ -14,10 +14,9 @@ namespace PizzaApp.DataAccess.Domain.Repositories
         }
         public bool Create(User entity)
         {
-            var user = _db.GetOrders().SingleOrDefault(x => x.Id == entity.Id);
+            var user = _db.GetUsers().SingleOrDefault(x => x.Id == entity.Id);
             if (user == null)
             {
-                entity.Id = _db.GetUsers().Count + 1;
                 _db.GetUsers().Add(entity);
                 return true;
             }
@@ -47,12 +46,12 @@ namespace PizzaApp.DataAccess.Domain.Repositories
 
         public bool Update(User entity)
         {
-            var user = _db.GetOrders().SingleOrDefault(x => x.Id == entity.Id);
+            var user = _db.GetUsers().SingleOrDefault(x => x.Id == entity.Id);
             if (user == null)
             {
                 return false;
             }
-            int index = _db.GetOrders().IndexOf(user);
+            int index = _db.GetUsers().IndexOf(user);
             _db.GetUsers()[index] = entity;
             return true;
         }

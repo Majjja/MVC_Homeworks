@@ -18,6 +18,6 @@ namespace PizzaApp.DataAccess.ViewModels
         public long PhoneNumber { get; set; }
 
         [Display(Name = "Pizza Menu")]
-        public List<int> PizzaIds { get; set; }
+        public List<PizzaVM> ListOfPizzas { get; set; }
     }
 }

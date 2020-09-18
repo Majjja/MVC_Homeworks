@@ -7,8 +7,8 @@ namespace PizzaApp.Services.Interfaces
 {
     public interface IUserService
     {
-        bool Login(UserVM user);
+        UserVM Login(UserVM user);
 
-        bool Register(UserVM user);
+        bool Register(UserVM userVM);
     }
 }

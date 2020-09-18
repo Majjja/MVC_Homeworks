@@ -1,4 +1,3 @@
-D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.csprojAssemblyReference.cache
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.AssemblyInfoInputs.cache
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.AssemblyInfo.cs
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\bin\Debug\netcoreapp2.1\PizzaApp.DataAccess.deps.json
@@ -6,3 +5,5 @@ D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAcc
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\bin\Debug\netcoreapp2.1\PizzaApp.DataAccess.pdb
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.dll
 D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.pdb
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.csprojAssemblyReference.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\HOMEWORK\MVC\PizzaApp\PizzaApp.DataAccess\obj\Debug\netcoreapp2.1\PizzaApp.DataAccess.csproj.CoreCompileInputs.cache

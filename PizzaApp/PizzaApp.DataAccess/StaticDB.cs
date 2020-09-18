@@ -11,7 +11,7 @@ namespace PizzaApp.DataAccess
 {
     public class StaticDB : IStaticDB
     {
-        List<Order> IStaticDB.GetOrders()
+        public List<Order> GetOrders()
         {
             return new List<Order>()
             {
@@ -114,86 +114,166 @@ namespace PizzaApp.DataAccess
             };
         }
 
-        List<Pizza> IStaticDB.GetPizzas()
+        private Pizza _capricciosa = new Pizza()
         {
-            return new List<Pizza>()
-            {
-                new Pizza()
-                {
-                    Id = 1,
-                    Name = "Capricciosa",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
-                    Price = 4,
-                    ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
-                },
-                new Pizza()
-                {
-                    Id = 2,
-                    Name = "Cheese",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
-                    Price = 5,
-                    ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
-                },
-                new Pizza()
-                {
-                    Id = 3,
-                    Name = "Veggie",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"},
-                    Price = 3.5,
-                    ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
-                },
-                 new Pizza()
-                {
-                    Id = 4,
-                    Name = "Margherita",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
-                    Price = 4.5,
-                    ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
-                },
-                new Pizza()
-                {
-                    Id = 5,
-                    Name = "Pepperoni",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
-                    Price =  6,
-                    ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
-                },
-                new Pizza()
-                {
-                    Id = 6,
-                    Name = "Chicken",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"},
-                    Price = 7,
-                    ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
-                },
-                 new Pizza()
-                {
-                    Id = 7,
-                    Name = "Hawaiian",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
-                    Price =  5,
-                    ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
-                },
-                new Pizza()
-                {
-                    Id = 8,
-                    Name = "Buffalo",
-                    Size = PizzaSize.Medium,
-                    Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
-                    Price = 5,
-                    ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
-                }
-            };
+            Id = 1,
+            Name = "Capricciosa",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes" },
+            Price = 4,
+            ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+        };
+        private Pizza _cheese = new Pizza()
+        {
+            Id = 2,
+            Name = "Cheese",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes" },
+            Price = 5,
+            ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+        };
+        private Pizza _veggie = new Pizza()
+        {
+            Id = 3,
+            Name = "Veggie",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber" },
+            Price = 3.5,
+            ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
+        };
+        private Pizza _margherita = new Pizza()
+        {
+            Id = 4,
+            Name = "Margherita",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper" },
+            Price = 4.5,
+            ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+        };
+        private Pizza _pepperoni = new Pizza()
+        {
+            Id = 5,
+            Name = "Pepperoni",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper" },
+            Price = 6,
+            ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+        };
+        private Pizza _chicken = new Pizza()
+        {
+            Id = 6,
+            Name = "Chicken",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion" },
+            Price = 7,
+            ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
+        };
+        private Pizza _hawaiian = new Pizza()
+        {
+            Id = 7,
+            Name = "Hawaiian",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Mozzarella cheese", "Ham", "Pineapple", "Cheese" },
+            Price = 5,
+            ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+        };
+        private Pizza _buffalo = new Pizza()
+        {
+            Id = 8,
+            Name = "Buffalo",
+            Size = PizzaSize.Medium,
+            Ingredients = new List<string>() { "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion" },
+            Price = 5,
+            ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+        };
+
+        public List<Pizza> GetPizzas()
+        {
+            return new List<Pizza>(){_capricciosa, _cheese, _veggie, _margherita, _pepperoni, _chicken, _hawaiian, _buffalo };    
         }
 
-        List<Store> IStaticDB.GetStores()
+        #region List<Pizza> IStaticDB.GetPizzas()
+        //List<Pizza> IStaticDB.GetPizzas()
+        //{
+        //    return new List<Pizza>()
+        //    {
+        //        new Pizza()
+        //        {
+        //            Id = 1,
+        //            Name = "Capricciosa",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+        //            Price = 4,
+        //            ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+        //        },
+        //        new Pizza()
+        //        {
+        //            Id = 2,
+        //            Name = "Cheese",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+        //            Price = 5,
+        //            ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+        //        },
+        //        new Pizza()
+        //        {
+        //            Id = 3,
+        //            Name = "Veggie",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"},
+        //            Price = 3.5,
+        //            ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
+        //        },
+        //         new Pizza()
+        //        {
+        //            Id = 4,
+        //            Name = "Margherita",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
+        //            Price = 4.5,
+        //            ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+        //        },
+        //        new Pizza()
+        //        {
+        //            Id = 5,
+        //            Name = "Pepperoni",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
+        //            Price =  6,
+        //            ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+        //        },
+        //        new Pizza()
+        //        {
+        //            Id = 6,
+        //            Name = "Chicken",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"},
+        //            Price = 7,
+        //            ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
+        //        },
+        //         new Pizza()
+        //        {
+        //            Id = 7,
+        //            Name = "Hawaiian",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
+        //            Price =  5,
+        //            ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+        //        },
+        //        new Pizza()
+        //        {
+        //            Id = 8,
+        //            Name = "Buffalo",
+        //            Size = PizzaSize.Medium,
+        //            Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+        //            Price = 5,
+        //            ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+        //        }
+        //    };
+        //}
+        #endregion
+
+        public List<Store> GetStores()
         {
             return new List<Store>()
             {
@@ -204,7 +284,65 @@ namespace PizzaApp.DataAccess
                     Address = "Street 1",
                     City = "Skopje",
                     PhoneNumber = 1234567891,
-                    PizzaIds = new List<int>(){1, 2, 4, 5, 6, 8 }
+                    ListOfPizzas = new List<Pizza>(){_capricciosa, _cheese, _margherita, _pepperoni,_chicken, _buffalo}
+#region pizzas_store1
+//{
+                    //    new Pizza()
+                    //    {
+                    //        Id = 1,
+                    //        Name = "Capricciosa",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 4,
+                    //        ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 2,
+                    //        Name = "Cheese",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+                    //    },
+                    //     new Pizza()
+                    //    {
+                    //        Id = 4,
+                    //        Name = "Margherita",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
+                    //        Price = 4.5,
+                    //        ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 5,
+                    //        Name = "Pepperoni",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
+                    //        Price =  6,
+                    //        ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 6,
+                    //        Name = "Chicken",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"},
+                    //        Price = 7,
+                    //        ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 8,
+                    //        Name = "Buffalo",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+                    //    }
+                    //}
+	#endregion
                 },
                 new Store()
                 {
@@ -213,7 +351,47 @@ namespace PizzaApp.DataAccess
                     Address =  "Street 2",
                     City = "Skopje",
                     PhoneNumber = 1234567891,
-                    PizzaIds = new List<int>(){ 5, 6, 7, 8 }
+                    ListOfPizzas = new List<Pizza>(){ _buffalo, _pepperoni,_chicken, _hawaiian}
+#region pizzas_store2
+                    //{
+                    //    new Pizza()
+                    //    {
+                    //        Id = 5,
+                    //        Name = "Pepperoni",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
+                    //        Price =  6,
+                    //        ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 6,
+                    //        Name = "Chicken",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Chicken breast", "Parnesan cheese", "Spinach", "Red onion"},
+                    //        Price = 7,
+                    //        ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbq-pizza-318-1547837614.jpg"
+                    //    },
+                    //     new Pizza()
+                    //    {
+                    //        Id = 7,
+                    //        Name = "Hawaiian",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
+                    //        Price =  5,
+                    //        ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 8,
+                    //        Name = "Buffalo",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+                    //    }
+                    //}
+	#endregion
                 },
                 new Store()
                 {
@@ -222,7 +400,38 @@ namespace PizzaApp.DataAccess
                     Address = "Street 3",
                     City = "Skopje",
                     PhoneNumber = 1234567891,
-                    PizzaIds = new List<int>(){1, 2, 3 }
+                    ListOfPizzas = new List<Pizza>(){ _capricciosa,_cheese, _veggie}
+#region pizzas_store3
+                    //{
+                    //    new Pizza()
+                    //    {
+                    //        Id = 1,
+                    //        Name = "Capricciosa",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 4,
+                    //        ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 2,
+                    //        Name = "Cheese",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 3,
+                    //        Name = "Veggie",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"},
+                    //        Price = 3.5,
+                    //        ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
+                    //    }
+                    //}
+	#endregion
                 },
                 new Store()
                 {
@@ -231,7 +440,47 @@ namespace PizzaApp.DataAccess
                     Address = "Street 4",
                     City = "Skopje",
                     PhoneNumber = 1234567891,
-                    PizzaIds = new List<int>(){1, 4, 7, 8}
+                    ListOfPizzas = new List<Pizza>(){ _capricciosa,_margherita, _hawaiian, _buffalo}
+#region pizzas_store4
+//{
+//                        new Pizza()
+//                        {
+//                            Id = 1,
+//                            Name = "Capricciosa",
+//                            Size = PizzaSize.Medium,
+//                            Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+//                            Price = 4,
+//                            ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+//                        },
+//                         new Pizza()
+//                        {
+//                            Id = 4,
+//                            Name = "Margherita",
+//                            Size = PizzaSize.Medium,
+//                            Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
+//                            Price = 4.5,
+//                            ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+//                        },
+//                          new Pizza()
+//                        {
+//                            Id = 7,
+//                            Name = "Hawaiian",
+//                            Size = PizzaSize.Medium,
+//                            Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
+//                            Price =  5,
+//                            ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+//                        },
+//                        new Pizza()
+//                        {
+//                            Id = 8,
+//                            Name = "Buffalo",
+//                            Size = PizzaSize.Medium,
+//                            Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+//                            Price = 5,
+//                            ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+//                        }
+//                    }
+	#endregion   
                 },
                 new Store()
                 {
@@ -240,12 +489,79 @@ namespace PizzaApp.DataAccess
                     Address = "Street 5",
                     City = "Skopje",
                     PhoneNumber = 1234567891,
-                    PizzaIds = new List<int>(){1, 2, 3, 4, 5, 7, 8 }
+                    ListOfPizzas = new List<Pizza>(){ _capricciosa,_cheese, _veggie, _margherita, _pepperoni, _hawaiian, _buffalo}
+#region pizzas_store5
+                    //{
+                    //     new Pizza()
+                    //    {
+                    //        Id = 1,
+                    //        Name = "Capricciosa",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 4,
+                    //        ImgUrl = "https://speisekarte.menu/storage/media/dishes_main/1763345/conversions/dish_thumbnail.jpg"
+                    //    },
+                    //     new Pizza()
+                    //    {
+                    //        Id = 2,
+                    //        Name = "Cheese",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Mozzarella cheese", "Parnesan cheese", "Ham", "Mushrooms", "Oregano", "Artichokes"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 3,
+                    //        Name = "Veggie",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Carrot", "Broccoli", "Mushrooms", "Cream cheese", "Cucumber"},
+                    //        Price = 3.5,
+                    //        ImgUrl = "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Veggie-Pizza_EXPS_LSBZ18_48960_D01_18_6b.jpg"
+                    //    },
+                    //     new Pizza()
+                    //    {
+                    //        Id = 4,
+                    //        Name = "Margherita",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){  "Tomatoes", "Mozzarella cheese", "Garlic", "Basil", "Pepper"},
+                    //        Price = 4.5,
+                    //        ImgUrl = "https://i2.wp.com/www.5dollardinners.com/wp-content/uploads/2016/01/Chicken-Margherita-Pizza-from-5DollarDinners-500x375.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 5,
+                    //        Name = "Pepperoni",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Tomatoes", "Cheese", "Pork", "Beef", "Oregano", "Chili pepper"},
+                    //        Price =  6,
+                    //        ImgUrl = "https://www.moulinex-me.com/medias/?context=bWFzdGVyfHJvb3R8MTQzNTExfGltYWdlL2pwZWd8aDM2L2g1Mi8xMzA5NzI3MzI2MjExMC5qcGd8N2MxZDhmNmI5ZTgzZDZlZWQyZGQ4YjFlZjUyNDlkMTExYjdkZDdlZmFkY2I0N2NmNjljOGViNmExZjIyMDU4Yw"
+                    //    },
+                    //     new Pizza()
+                    //    {
+                    //        Id = 7,
+                    //        Name = "Hawaiian",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Mozzarella cheese", "Ham", "Pineapple", "Cheese"},
+                    //        Price =  5,
+                    //        ImgUrl = "https://www.jessicagavin.com/wp-content/uploads/2020/07/hawaiian-pizza-16-1200.jpg"
+                    //    },
+                    //    new Pizza()
+                    //    {
+                    //        Id = 8,
+                    //        Name = "Buffalo",
+                    //        Size = PizzaSize.Medium,
+                    //        Ingredients = new List<string>(){ "Cheddar cheese", "Chicken breast", "Provolone cheese", " American cheese", "Red onion"},
+                    //        Price = 5,
+                    //        ImgUrl = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190226-buffalo-chicken-pizza-370-1552084943.jpg"
+                    //    }
+                    //}
+	#endregion
                 }
             };
         }
 
-        List<User> IStaticDB.GetUsers()
+        public List<User> GetUsers()
         {
             return new List<User>()
             {
@@ -258,7 +574,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012318888,
                     Email = "admin@yahoo.com",
                     Password = "Admin123$",
-                    isAdmin = true
+                    IsAdmin = true
                 },
                 new User()
                 {
@@ -269,7 +585,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012312345,
                     Email = "bob@yahoo.com",
                     Password = "Bob123$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -280,7 +596,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012888896,
                     Email = "bobby@yahoo.com",
                     Password = "Bobby1234$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -291,7 +607,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012388333,
                     Email = "john@yahoo.com",
                     Password = "John12345$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -302,7 +618,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012374444,
                     Email = "jeny@yahoo.com",
                     Password = "Jeny123456$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -313,7 +629,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012175111,
                     Email = "mark@yahoo.com",
                     Password = "Mark1234567$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                     new User()
                 {
@@ -324,7 +640,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012175177,
                     Email = "dan@yahoo.com",
                     Password = "Dan12345678$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -335,7 +651,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012175777,
                     Email = "pol@yahoo.com",
                     Password = "Pol123456789$",
-                    isAdmin = false
+                    IsAdmin = false
                 },
                 new User()
                 {
@@ -346,7 +662,7 @@ namespace PizzaApp.DataAccess
                     PhoneNumber = 080012175883,
                     Email = "pirs@yahoo.com",
                     Password = "Pirs1234567891$",
-                    isAdmin = false
+                    IsAdmin = false
                 }
             };
         }
