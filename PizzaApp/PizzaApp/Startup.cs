@@ -9,6 +9,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PizzaApp.DataAccess;
+using PizzaApp.DataAccess.Domain.Interfaces;
+using PizzaApp.DataAccess.Domain.Models;
+using PizzaApp.DataAccess.Domain.Repositories;
+using PizzaApp.Services.Interfaces;
+using PizzaApp.Services.Services;
 
 namespace PizzaApp
 {
@@ -33,6 +39,15 @@ namespace PizzaApp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<IStaticDB, StaticDB>();
+            services.AddTransient<IRepository<User>, UserRepository>();
+            services.AddTransient<IRepository<Pizza>, PizzaRepository>();
+            services.AddTransient<IRepository<Store>, StoreRepository>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPizzaService, PizzaService>();
+            services.AddTransient<IStoreService, StoreService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

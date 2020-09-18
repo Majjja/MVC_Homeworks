@@ -1,0 +1,9 @@
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.deps.json
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.dll
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.pdb
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.csprojAssemblyReference.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.AssemblyInfoInputs.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.AssemblyInfo.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.csproj.CoreCompileInputs.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.dll
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.DataAccess\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.pdb

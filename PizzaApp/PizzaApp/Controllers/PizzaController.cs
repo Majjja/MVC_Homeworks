@@ -4,27 +4,24 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PizzaApp.DataAccess.ViewModels;
 using PizzaApp.Models;
-using PizzaApp.Models.ViewModels;
+using PizzaApp.Services.Interfaces;
 
 namespace PizzaApp.Controllers
 {
     [Route("pizzas")]
     public class PizzaController : Controller
     {
+        private IPizzaService _pizzaService;
+        public PizzaController(IPizzaService pizzaService)
+        {
+            _pizzaService = pizzaService;
+        }
         [HttpGet("list")]
         public IActionResult Index()
         {
-            List<PizzaModel> pizzas = StaticDB.ListOfPizzas;
-            var pizzasVM = pizzas.Select(pizza => new PizzaVM()
-            {
-                Id = pizza.Id,
-                Name = pizza.Name,
-                Size = pizza.Size,
-                Price = pizza.Price,
-                Ingredients = pizza.Ingredients,
-                ImgUrl = pizza.ImgUrl
-            }).ToList();
+            var pizzasVM = _pizzaService.GetAllPizzas();
             return View(pizzasVM);
         }
 
@@ -35,84 +32,46 @@ namespace PizzaApp.Controllers
         }
 
         [HttpPost("createNew")]
-        public IActionResult CreateNewPizza(PizzaModel model)
+        public IActionResult CreateNewPizza(PizzaVM model)
         {
-            var newItem = new PizzaModel()
-            {
-                Id = StaticDB.ListOfPizzas.Count + 1, 
-                Name = model.Name,
-                Size = model.Size,
-                Ingredients = model.Ingredients,
-                Price = model.Price
-            };
-
-            if (newItem.Size == PizzaSize.Medium)
-                newItem.Price = model.Price;
-
-            if (newItem.Size == PizzaSize.Small)
-                newItem.Price = model.Price * 0.75;
-            
-            if (newItem.Size == PizzaSize.Family)
-                newItem.Price = model.Price * 1.5;
-
-
-            StaticDB.ListOfPizzas.Add(newItem);
+            _pizzaService.CreateNewPizza(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet("details/{id}")]
         public IActionResult PizzaDetails(int id)
         {
-            var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
-            var pizzaVM = new PizzaVM()
-            {
-                Id = pizza.Id,
-                Name = pizza.Name,
-                Size = pizza.Size,
-                Ingredients = pizza.Ingredients,
-                Price = pizza.Price
-            };
+            var pizzaVM = _pizzaService.GetPizzaById(id);
             return View(pizzaVM);
         }
 
         [HttpGet("delete/{id}")]
         public IActionResult PizzaDelete(int id)
         {
-            var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
-            return View(pizza);
+            var pizzaVM = _pizzaService.GetPizzaById(id);
+            return View(pizzaVM);
         }
 
         [HttpPost("deletedPizza/{id}"), ActionName("DeletedPizzaFromList")]
         public IActionResult DeletedPizzaFromList(int id)
         {
-            var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
-            StaticDB.ListOfPizzas.Remove(pizza);
-
+            var pizzaVM = _pizzaService.GetPizzaById(id);
+            _pizzaService.DeletePizza(pizzaVM);
             return RedirectToAction("Index");            
         }
 
         [HttpGet("edit/{id}")]
         public IActionResult PizzaEdit(int id)
         {
-            var pizza = StaticDB.ListOfPizzas.SingleOrDefault(x => x.Id == id);
-            return View(pizza);
+            var pizzaVM = _pizzaService.GetPizzaById(id);
+            return View(pizzaVM);
         }
 
         [HttpPost("edited/{id}"), ActionName("PizzaEdited")]
-        public IActionResult PizzaEdited(PizzaModel model)
+        public IActionResult PizzaEdited(PizzaVM model)
         {
-
-            var newPizza = new PizzaModel()
-            {
-                Id = model.Id,
-                Name = model.Name,
-                Size = model.Size,
-                Ingredients = model.Ingredients,
-                Price = model.Price
-            };
-            StaticDB.ListOfPizzas.Add(newPizza);
+            _pizzaService.UpdatePizza(model);
             return RedirectToAction("Index");
-
         }
 
         public IActionResult BackToStores()

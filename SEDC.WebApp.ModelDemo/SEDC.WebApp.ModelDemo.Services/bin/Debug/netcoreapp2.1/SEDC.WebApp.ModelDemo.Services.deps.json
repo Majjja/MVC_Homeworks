@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "SEDC.WebApp.ModelDemo.Services/1.0.0": {
+        "dependencies": {
+          "SEDC.WebApp.ModelDemo.DataAccess": "1.0.0"
+        },
+        "runtime": {
+          "SEDC.WebApp.ModelDemo.Services.dll": {}
+        }
+      },
+      "SEDC.WebApp.ModelDemo.DataAccess/1.0.0": {
+        "runtime": {
+          "SEDC.WebApp.ModelDemo.DataAccess.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SEDC.WebApp.ModelDemo.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SEDC.WebApp.ModelDemo.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

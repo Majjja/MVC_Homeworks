@@ -1,0 +1,12 @@
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.deps.json
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.dll
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.pdb
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.dll
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\bin\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.DataAccess.pdb
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.csprojAssemblyReference.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.AssemblyInfoInputs.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.AssemblyInfo.cs
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.csproj.CoreCompileInputs.cache
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.csproj.CopyComplete
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.dll
+D:\WEB DEVELOPER\SEDC Code Academy\8. MVC\8. Class\SEDC.WebApp.ModelDemo\SEDC.WebApp.ModelDemo.Services\obj\Debug\netcoreapp2.1\SEDC.WebApp.ModelDemo.Services.pdb
